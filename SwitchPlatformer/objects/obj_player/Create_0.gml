@@ -19,3 +19,5 @@ invFrames = baseInvFrames;
 isInvincible = false;
 blinkSwitch = 2;
 
+//Keys (the grouping elements for objects)
+canSwitch = true;

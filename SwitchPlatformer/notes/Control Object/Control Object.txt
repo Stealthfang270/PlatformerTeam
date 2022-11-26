@@ -1,0 +1,2 @@
+The control object that you see in the top left corner of Room 1 is not actually visible nor is it
+intended to be. The only reason it has a sprite is so that we can know what it is in the room editor.
