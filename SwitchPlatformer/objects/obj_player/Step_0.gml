@@ -9,6 +9,8 @@ for pulleys, switch tiles, moveable boxes, and potentially more
 Ultimately copying this code should save us more time than it loses but some work will have to be
 done to make sure it's cleaner and better.*/
 
+
+
 canJump -= 1;
 //Player input
 //If the player has control
@@ -35,8 +37,12 @@ xSpeed = _move * walkSpeed;
 
 //If on the ground
 if (place_meeting(x,y+1,obj_wall)) {
+	var _inst = instance_place(x,y+1,obj_wall);
 	//Set speed to 0 to prevent gravity glitch
-	ySpeed = 0;
+	if(_inst.hasCollision) {
+		ySpeed = 0;
+		canJump = 10;
+	}
 }
 
 //If able to jump
@@ -50,14 +56,23 @@ if (ySpeed < 0 && !keyJumpHeld) {
 	ySpeed = max(ySpeed, jumpRelease);
 }
 
-if(!place_meeting(x,y+1,obj_wall)) {
+_inst = instance_place(x,y+1,obj_wall);
+if(_inst != noone && !_inst.hasCollision) {
+	_inst = noone;
+}
+
+if(_inst == noone) {
 	ySpeed += grav;
 }
 
 //Horizontal Collision
 //If there is a wall less distance away than the xspeed, instead move the player the distance required
-if(place_meeting(x+xSpeed,y,obj_wall)) {
-	while (!place_meeting(x+sign(xSpeed),y,obj_wall)) {
+_inst = instance_place(x+xSpeed,y,obj_wall);
+if(_inst != noone && !_inst.hasCollision) {
+	_inst = noone;
+}
+if(_inst != noone) {
+	while (!place_meeting(x+sign(xSpeed),y,_inst)) {
 		x += sign(xSpeed);
 	}
 } else {
@@ -67,11 +82,15 @@ if(place_meeting(x+xSpeed,y,obj_wall)) {
 //Vertical Collision
 //If there is a wall below the player lower than their yspeed, instead move them the distance required,
 //Otherwise move equal to their yspeed
-if(place_meeting(x,y+ySpeed,obj_wall)) {
-	while (!place_meeting(x,y+sign(ySpeed),obj_wall)) {
+_inst = instance_place(x,y+ySpeed,obj_wall);
+if(_inst != noone && !_inst.hasCollision) {
+	_inst = noone;
+}
+if(_inst != noone) {
+	while (!place_meeting(x,y+sign(ySpeed),_inst)) {
 		y += sign(ySpeed);
 	}
-	if(place_meeting(x,y-1,obj_wall)) {
+	if(place_meeting(x,y-1,_inst)) {
 		ySpeed = +1;
 	}
 } else {
@@ -83,29 +102,7 @@ if(place_meeting(x,y+ySpeed,obj_wall)) {
 //All the commented out code in this section is due to the fact that this was a chunk
 //of code that was mostly intended to handle animations, of which have not yet
 //been implemented
-if (!place_meeting (x,y+1,obj_wall)) {
-	//sprite_index = spr_player_jump;
-	//if(sign(ySpeed) < 0) {
-	//	image_index = 0;
-	//} else {
-	//	image_index = 1;
-	//}
-} else {
-	canJump = 10;
-	//if(sprite_index == spr_player_jump) {
-	//	audio_play_sound(snd_land,1,0);
-	//	repeat(5) {
-	//		with(instance_create_layer(x,bbox_bottom,"Bullet",obj_dust)) {
-	//			ySpeed = 0;
-	//		}
-	//	}
-	//}
-	//if(xSpeed == 0) {
-	//	sprite_index = spr_player;
-	//} else {
-	//	sprite_index = spr_player_run;
-	//}
-}
+
 
 //Handle invincibility
 if(isInvincible && invFrames > 0) {

@@ -6,7 +6,6 @@
 if(instance_exists(obj_player)) {
 	if(obj_player.hasControl) {
 		keySwitch = keyboard_check_pressed(ord("X")) || keyboard_check_pressed(ord("E"));
-		keySwitchReleased = !(keyboard_check_pressed(ord("X")) || keyboard_check_pressed(ord("E")));
 	}
 }
 
@@ -15,8 +14,10 @@ if(instance_exists(obj_player)) {
 if(keySwitch) {
 	with(all) {
 		if(variable_instance_exists(self, "canSwitch")) {
-			show_debug_message("Object attempted switch: " + object_get_name(object_index));
-			alarm[0] = 1;
+			if(canSwitch == true) {
+				show_debug_message("Object attempted switch: " + object_get_name(object_index));
+				alarm[0] = 1;
+			}
 		}
 	}
 	//Change background. This is not the method we will use in the final game
