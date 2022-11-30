@@ -123,8 +123,13 @@ if(isInvincible && invFrames > 0) {
 	//Reset visibility and invincibility
 	visible = true;
 	isInvincible = false;
+	invFrames = invFramesReset;
 }
 
 
+//Restarts room when HP = 0
 
+if(hp == 0){
+	room_restart();
+}
 
