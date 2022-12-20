@@ -21,3 +21,7 @@ blinkSwitch = 2;
 
 //Keys (the grouping elements for objects)
 canSwitch = true;
+
+//Other stuff
+overlap = ds_list_create();
+overlapSize = 0;
