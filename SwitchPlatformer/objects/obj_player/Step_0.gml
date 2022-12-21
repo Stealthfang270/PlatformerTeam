@@ -9,7 +9,7 @@ for pulleys, switch tiles, moveable boxes, and potentially more
 Ultimately copying this code should save us more time than it loses but some work will have to be
 done to make sure it's cleaner and better.*/
 
-
+_inst = noone;
 
 canJump -= 1;
 //Player input
@@ -37,12 +37,7 @@ xSpeed = _move * walkSpeed;
 
 //If on the ground
 if (place_meeting(x,y+1,obj_wall)) {
-	overlapSize = instance_place_list(x,y+1,obj_wall,overlap,true);
-	if(!ds_list_empty(overlap)) {
-		//Grab the item in the list that is furthest away from the player
-		var _inst = ds_list_find_value(overlap, overlapSize - 1);
-	}
-	
+	get_wall_collision(self,x,y+1,false);
 	
 	//Set speed to 0 to prevent gravity glitch
 	if(_inst.hasCollision) {
@@ -65,17 +60,9 @@ if (ySpeed < 0 && !keyJumpHeld) {
 }
 
 
-overlapSize = instance_place_list(x,y+1,obj_wall,overlap,true);
-if(!ds_list_empty(overlap)) {
-	//Grab the item in the list that is furthest away from the player
-	_inst = ds_list_find_value(overlap, overlapSize - 1);
-	if(!_inst.hasCollision) {
-		_inst = noone;
-	}
-} else {
-	//If there is nothing in the list, inst = noone
-	_inst = noone;
-}
+//Implement gravity
+
+get_wall_collision(self, x, y+1, true);
 
 if(_inst == noone) {
 	ySpeed += grav;
@@ -83,22 +70,13 @@ if(_inst == noone) {
 
 ds_list_clear(overlap);
 
+
 //********************
 //Horizontal Collision
 //*********************
 
 
-overlapSize = instance_place_list(x+xSpeed,y,obj_wall,overlap,true);
-if(!ds_list_empty(overlap)) {
-	//Grab the item in the list that is furthest away from the player
-	_inst = ds_list_find_value(overlap, overlapSize - 1);
-	if(!_inst.hasCollision) {
-		_inst = noone;
-	}
-} else {
-	//If there is nothing in the list, inst = noone
-	_inst = noone;
-}
+get_wall_collision(self,x + xSpeed,y,true);
 
 //If there is a wall less distance away than the xspeed, instead move the player the distance required
 if(_inst != noone && !_inst.hasCollision) {
@@ -118,18 +96,8 @@ ds_list_clear(overlap);
 //Vertical Collision
 //******************
 
-//Store each overlapping wall in a variable
-overlapSize = instance_place_list(x,y+ySpeed,obj_wall,overlap,true);
-if(!ds_list_empty(overlap)) {
-	//Grab the item in the list that is furthest away from the player
-	_inst = ds_list_find_value(overlap, overlapSize - 1);
-	if(!_inst.hasCollision) {
-		_inst = noone;
-	}
-} else {
-	//If there is nothing in the list, inst = noone
-	_inst = noone;
-}
+
+get_wall_collision(self,x,y+ySpeed,true);
 
 //If there is a wall below the player lower than their yspeed, instead move them the distance required,
 //Otherwise move equal to their yspeed
