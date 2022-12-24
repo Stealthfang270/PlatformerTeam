@@ -6,6 +6,8 @@
 if(instance_exists(obj_player)) {
 	if(obj_player.hasControl && obj_player.canSwitch) {
 		keySwitch = keyboard_check_pressed(ord("X")) || keyboard_check_pressed(ord("E"));
+	} else {
+		keySwitch = false;
 	}
 }
 
