@@ -5,6 +5,8 @@ xSpeed = 0;
 ySpeed = 0;
 grav = 0.15;
 walkSpeed = 4;
+walkSpeedBase = 4;
+walkSpeedSlower = 1.5;
 hasControl = true;
 canJump = 0;
 maxHP = 3;
@@ -25,3 +27,4 @@ canSwitch = true;
 //Other stuff
 overlap = ds_list_create();
 overlapSize = 0;
+inst = noone;

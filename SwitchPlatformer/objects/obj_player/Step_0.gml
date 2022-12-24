@@ -9,7 +9,7 @@ for pulleys, switch tiles, moveable boxes, and potentially more
 Ultimately copying this code should save us more time than it loses but some work will have to be
 done to make sure it's cleaner and better.*/
 
-_inst = noone;
+inst = noone;
 
 canJump -= 1;
 //Player input
@@ -28,11 +28,27 @@ if(hasControl) {
 	keyJumpHeld = 0;
 }
 
+//Check if player is next to crate
+
+if(instance_exists(obj_crate)) {
+	var _crate = collision_rectangle(bbox_left-6,y-1,bbox_right+6,y,obj_crate,false,true);
+	if(_crate != noone) {
+		walkSpeed = walkSpeedSlower;
+		
+	} else {
+		walkSpeed = walkSpeedBase;
+	}
+}
+
 //Set Xspeed to keyRight - keyLeft in order to handle all X movements in 1 variable
 //With this calculation, pressing left should have a value of -4 and pressing right should be 4
 var _move = keyRight - keyLeft;
 
+
 xSpeed = _move * walkSpeed;
+
+
+
 
 
 //If on the ground
@@ -40,7 +56,7 @@ if (place_meeting(x,y+1,obj_wall)) {
 	get_wall_collision(self,x,y+1,false);
 	
 	//Set speed to 0 to prevent gravity glitch
-	if(_inst.hasCollision) {
+	if(inst.hasCollision) {
 		ySpeed = 0;
 		canJump = 10;
 	}
@@ -64,7 +80,7 @@ if (ySpeed < 0 && !keyJumpHeld) {
 
 get_wall_collision(self, x, y+1, true);
 
-if(_inst == noone) {
+if(inst == noone) {
 	ySpeed += grav;
 }
 
@@ -79,11 +95,11 @@ ds_list_clear(overlap);
 get_wall_collision(self,x + xSpeed,y,true);
 
 //If there is a wall less distance away than the xspeed, instead move the player the distance required
-if(_inst != noone && !_inst.hasCollision) {
-	_inst = noone;
+if(inst != noone && !inst.hasCollision) {
+	inst = noone;
 }
-if(_inst != noone) {
-	while (!place_meeting(x+sign(xSpeed),y,_inst)) {
+if(inst != noone) {
+	while (!place_meeting(x+sign(xSpeed),y,inst)) {
 		x += sign(xSpeed);
 	}
 } else {
@@ -101,12 +117,11 @@ get_wall_collision(self,x,y+ySpeed,true);
 
 //If there is a wall below the player lower than their yspeed, instead move them the distance required,
 //Otherwise move equal to their yspeed
-if(_inst != noone) {
-	while (!place_meeting(x,y+sign(ySpeed),_inst)) {
+if(inst != noone) {
+	while (!place_meeting(x,y+sign(ySpeed),inst)) {
 		y += sign(ySpeed);
 	}
-	show_debug_message("this is a test");
-	if(place_meeting(x,y-1,_inst)) {
+	if(place_meeting(x,y-1,inst)) {
 		ySpeed = +1;
 	}
 } else {
