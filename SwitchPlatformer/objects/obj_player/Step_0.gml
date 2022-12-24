@@ -62,6 +62,13 @@ if (place_meeting(x,y+1,obj_wall)) {
 	}
 }
 
+//if inside of wall(with or without collision)
+if(place_meeting(x,y,obj_wall)) {
+	canSwitch = false;
+} else {
+	canSwitch = true;
+}
+
 ds_list_clear(overlap);
 
 //If able to jump

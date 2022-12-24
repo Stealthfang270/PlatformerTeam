@@ -4,7 +4,7 @@
 
 //Check if the player has control and if so set the key to switch to X or E
 if(instance_exists(obj_player)) {
-	if(obj_player.hasControl) {
+	if(obj_player.hasControl && obj_player.canSwitch) {
 		keySwitch = keyboard_check_pressed(ord("X")) || keyboard_check_pressed(ord("E"));
 	}
 }
