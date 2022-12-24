@@ -35,15 +35,19 @@ if(inst == noone) {
 ds_list_clear(overlap);
 
 //Determine if there is a player next to it
-if(instance_exists(obj_player)) {
-	if(place_meeting(x-1,y,obj_player) && keyRight) {
-		xSpeed = obj_player.xSpeed;
-	} else if(place_meeting(x+1,y,obj_player) && keyLeft) {
-		xSpeed = obj_player.xSpeed;
-	} else {
-		xSpeed = 0;
+//Check box has collision
+if(hasCollision) {
+	if(instance_exists(obj_player)) {
+		if(place_meeting(x-1,y,obj_player) && keyRight) {
+			xSpeed = obj_player.xSpeed;
+		} else if(place_meeting(x+1,y,obj_player) && keyLeft) {
+			xSpeed = obj_player.xSpeed;
+		} else {
+			xSpeed = 0;
+		}
 	}
-	
+} else {
+	xSpeed = 0;
 }
 
 //Horizontal collision

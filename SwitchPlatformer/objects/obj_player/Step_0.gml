@@ -32,6 +32,13 @@ if(hasControl) {
 
 if(instance_exists(obj_crate)) {
 	var _crate = collision_rectangle(bbox_left-6,y-1,bbox_right+6,y,obj_crate,false,true);
+	//Check if crate has collision
+	if(_crate != noone) {
+		if(_crate.hasCollision = false){
+			_crate = noone;
+		}
+	}
+	//If crate is next to player and does have collision, slow player speed.
 	if(_crate != noone) {
 		walkSpeed = walkSpeedSlower;
 		
@@ -62,6 +69,8 @@ if (place_meeting(x,y+1,obj_wall)) {
 	}
 }
 
+ds_list_clear(overlap);
+
 //if inside of wall(with or without collision)
 if(place_meeting(x,y,obj_wall)) {
 	canSwitch = false;
@@ -69,7 +78,16 @@ if(place_meeting(x,y,obj_wall)) {
 	canSwitch = true;
 }
 
-ds_list_clear(overlap);
+//if crate is inside of wall
+if(instance_exists(obj_crate)) {
+	with(obj_crate) {
+		if(place_meeting(x,y,obj_wall)) {
+		obj_player.canSwitch = false;
+		} else {
+			obj_player.canSwitch = true;
+		}
+	}
+}
 
 //If able to jump
 if(keyJump && canJump > 0) {
