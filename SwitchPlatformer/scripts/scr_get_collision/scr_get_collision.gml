@@ -9,7 +9,14 @@ function get_wall_collision(obj, placeX, placeY, setNoone){
 		overlapSize = instance_place_list(placeX,placeY,obj_wall,overlap,true);
 		if(!ds_list_empty(overlap)) {
 			//Grab the item in the list that is furthest away from the player
-			inst = ds_list_find_value(overlap, overlapSize - 1);
+			for(var i = 0; i < overlapSize; i++) {
+				if(ds_list_find_value(overlap, i).hasCollision) {
+					inst = ds_list_find_value(overlap, i);
+					break;
+				} else {
+					inst = ds_list_find_value(overlap, overlapSize - 1);
+				}
+			}
 			if(setNoone) {
 				if(!inst.hasCollision) {
 					inst = noone;

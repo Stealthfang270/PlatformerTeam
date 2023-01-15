@@ -20,9 +20,8 @@
 -10,0,-12,-2147483648,-10,0,-12,-2147483648,-10,0,2,-2147483648,34,-3,20,1,36,-6,-2147483648,-10,0,2,
 -2147483648,16,-3,47,1,24,-6,-2147483648,-10,0,2,-2147483648,40,-3,28,1,38,-6,-2147483648,-10,0,-14,
 -2147483648,-2,0,-3,-2147483648,-4,0,-3,-2147483648,1,43,-5,33,2,22,36,-11,0,2,-2147483648,46,-7,
--2147483648,2,16,24,-9,0,2,43,45,-9,-2147483648,2,16,24,-7,0,1,42,-7,-2147483648,8,42,
--2147483648,42,-2147483648,-2147483648,16,24,34,-6,20,1,3,-7,20,8,3,20,3,20,20,1,24,40,
--20,28,1,38,],},"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
+-2147483648,2,16,24,-9,0,2,43,45,-9,-2147483648,2,16,24,-7,0,1,42,-7,-2147483648,-3,0,
+-2,-2147483648,3,16,24,34,-6,20,1,3,-12,20,3,1,24,40,-20,28,1,38,],},"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_EF0692B","properties":[],"isDnd":false,"objectId":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":43.0,"scaleY":4.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":0.0,"y":640.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_3DE284F9","properties":[],"isDnd":false,"objectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":224.0,"y":640.0,},

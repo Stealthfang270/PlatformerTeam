@@ -78,13 +78,12 @@ if(place_meeting(x,y,obj_wall)) {
 	canSwitch = true;
 }
 
+
 //if crate is inside of wall
 if(instance_exists(obj_crate)) {
 	with(obj_crate) {
 		if(place_meeting(x,y,obj_wall)) {
 		obj_player.canSwitch = false;
-		} else {
-			obj_player.canSwitch = true;
 		}
 	}
 }
