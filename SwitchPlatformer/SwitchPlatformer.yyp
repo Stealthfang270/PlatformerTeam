@@ -8,6 +8,8 @@
     {"id":{"name":"spr_control","path":"sprites/spr_control/spr_control.yy",},"order":3,},
     {"id":{"name":"spr_background","path":"sprites/spr_background/spr_background.yy",},"order":2,},
     {"id":{"name":"spr_crate","path":"sprites/spr_crate/spr_crate.yy",},"order":6,},
+    {"id":{"name":"spr_camera","path":"sprites/spr_camera/spr_camera.yy",},"order":8,},
+    {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":6,},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},"order":0,},
     {"id":{"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},"order":1,},
     {"id":{"name":"tile_floor","path":"tilesets/tile_floor/tile_floor.yy",},"order":0,},
@@ -20,7 +22,7 @@
     {"id":{"name":"scr_get_collision","path":"scripts/scr_get_collision/scr_get_collision.yy",},"order":0,},
     {"id":{"name":"obj_wall","path":"objects/obj_wall/obj_wall.yy",},"order":1,},
     {"id":{"name":"obj_spike","path":"objects/obj_spike/obj_spike.yy",},"order":3,},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
+    {"id":{"name":"rm_debug","path":"rooms/rm_debug/rm_debug.yy",},"order":0,},
   ],
   "Options": [
     {"name":"Linux","path":"options/linux/options_linux.yy",},
@@ -36,7 +38,7 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"rm_debug","path":"rooms/rm_debug/rm_debug.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":12,},
