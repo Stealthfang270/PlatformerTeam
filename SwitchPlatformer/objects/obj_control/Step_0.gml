@@ -29,4 +29,6 @@ if(keySwitch) {
 	} else {
 		layer_background_index(layer_background_get_id("Background"), 0);
 	}
+	//Debug background
+	show_debug_message(layer_background_get_index(layer_background_get_id("Background")));
 }

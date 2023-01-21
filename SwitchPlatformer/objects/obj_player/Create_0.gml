@@ -13,6 +13,8 @@ maxHP = 3;
 hp = maxHP;
 jumpHeight = -6;
 jumpRelease = -3;
+xScale = image_xscale;
+characterState = 1;
 
 //Invincibility variables
 baseInvFrames = 40;

@@ -54,7 +54,12 @@ var _move = keyRight - keyLeft;
 
 xSpeed = _move * walkSpeed;
 
-
+//Set direction facing
+if(xSpeed < 0) {
+	image_xscale = -xScale;
+} else if(xSpeed > 0) {
+	image_xscale = xScale;
+}
 
 
 
