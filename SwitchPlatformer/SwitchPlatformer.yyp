@@ -14,7 +14,8 @@
     {"id":{"name":"spr_comedy","path":"sprites/spr_comedy/spr_comedy.yy",},"order":0,},
     {"id":{"name":"spr_wall","path":"sprites/spr_wall/spr_wall.yy",},"order":1,},
     {"id":{"name":"tile_floor","path":"tilesets/tile_floor/tile_floor.yy",},"order":0,},
-    {"id":{"name":"rm_level_1","path":"rooms/rm_level_1/rm_level_1.yy",},"order":1,},
+    {"id":{"name":"rm_level_x","path":"rooms/rm_level_x/rm_level_x.yy",},"order":1,},
+    {"id":{"name":"rm_level_1","path":"rooms/rm_level_1/rm_level_1.yy",},"order":2,},
     {"id":{"name":"spr_tragedy","path":"sprites/spr_tragedy/spr_tragedy.yy",},"order":10,},
     {"id":{"name":"spr_rm_exit","path":"sprites/spr_rm_exit/spr_rm_exit.yy",},"order":9,},
     {"id":{"name":"obj_crate","path":"objects/obj_crate/obj_crate.yy",},"order":5,},
@@ -42,8 +43,9 @@
     "children": [],
   },
   "RoomOrderNodes": [
-    {"roomId":{"name":"rm_debug","path":"rooms/rm_debug/rm_debug.yy",},},
     {"roomId":{"name":"rm_level_1","path":"rooms/rm_level_1/rm_level_1.yy",},},
+    {"roomId":{"name":"rm_debug","path":"rooms/rm_debug/rm_debug.yy",},},
+    {"roomId":{"name":"rm_level_x","path":"rooms/rm_level_x/rm_level_x.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":12,},

@@ -3,7 +3,7 @@
 //Player stats
 xSpeed = 0;
 ySpeed = 0;
-grav = 0.15;
+grav = 0.20;
 walkSpeed = 4;
 walkSpeedBase = 4;
 walkSpeedSlower = 1.5;

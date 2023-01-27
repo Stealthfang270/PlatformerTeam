@@ -16,16 +16,23 @@ canJump -= 1;
 //If the player has control
 if(hasControl) {
 	//Check for keys that the player is pressing
-	keyLeft = keyboard_check(vk_left) || keyboard_check(ord("A"));
+	keyLeft = (keyboard_check(vk_left) || keyboard_check(ord("A")));
 	keyRight = keyboard_check(vk_right) || keyboard_check(ord("D"));
-	keyJump = keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")) || keyboard_check_pressed(vk_space);
-	keyJumpHeld = keyboard_check(vk_up) || keyboard_check(ord("W")) || keyboard_check(vk_space);
+	keyJump = keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")) || 
+	keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0, gp_face1);
+	keyJumpHeld = keyboard_check(vk_up) || keyboard_check(ord("W")) || keyboard_check(vk_space) 
+	|| gamepad_button_check(0, gp_face1);
 } else {
 	//If no keys are pressed, reset values to 0
 	keyLeft = 0;
 	keyRight = 0;
 	keyJump = 0;
 	keyJumpHeld = 0;
+}
+
+if(abs(gamepad_axis_value(0,gp_axislh)) > 0.2) {
+	keyLeft = abs(min(gamepad_axis_value(0,gp_axislh),0));
+	keyRight = max(gamepad_axis_value(0,gp_axislh),0);
 }
 
 //Check if player is next to crate

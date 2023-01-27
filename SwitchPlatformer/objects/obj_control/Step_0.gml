@@ -5,7 +5,7 @@
 //Check if the player has control and if so set the key to switch to X or E
 if(instance_exists(obj_player)) {
 	if(obj_player.hasControl && obj_player.canSwitch) {
-		keySwitch = keyboard_check_pressed(ord("X")) || keyboard_check_pressed(ord("E"));
+		keySwitch = (keyboard_check_pressed(ord("X")) || keyboard_check_pressed(ord("E")) || gamepad_button_check_pressed(0, gp_face3));
 	} else {
 		keySwitch = false;
 	}
@@ -31,4 +31,9 @@ if(keySwitch) {
 	}
 	//Debug background
 	show_debug_message(layer_background_get_index(layer_background_get_id("Background")));
+}
+
+if(gamepad_button_check_pressed(0,gp_start)) {
+	//Room reset for controller input
+	room_restart();
 }
