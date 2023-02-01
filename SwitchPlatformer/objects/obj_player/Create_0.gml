@@ -15,6 +15,7 @@ jumpHeight = -6;
 jumpRelease = -3;
 xScale = image_xscale;
 characterState = 1;
+dead = false;
 
 //Invincibility variables
 baseInvFrames = 40;
@@ -30,3 +31,12 @@ canSwitch = true;
 overlap = ds_list_create();
 overlapSize = 0;
 inst = noone;
+
+//Particle Variables
+minSize = 1;
+maxSize = 2;
+minAmt = 10;
+maxAmt = 25;
+minSpeed = 0.5;
+maxSpeed = 2;
+decaySeconds = 3 * 60;
