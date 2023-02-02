@@ -27,7 +27,6 @@
     {"name":"obj_camera","order":6,"path":"objects/obj_camera/obj_camera.yy",},
     {"name":"spr_wall","order":1,"path":"sprites/spr_wall/spr_wall.yy",},
     {"name":"rm_level_2","order":3,"path":"rooms/rm_level_2/rm_level_2.yy",},
-    {"name":"rm_level_x","order":1,"path":"rooms/rm_level_x/rm_level_x.yy",},
     {"name":"rm_level_1","order":2,"path":"rooms/rm_level_1/rm_level_1.yy",},
     {"name":"spr_tragedy","order":10,"path":"sprites/spr_tragedy/spr_tragedy.yy",},
     {"name":"obj_death_particle","order":8,"path":"objects/obj_death_particle/obj_death_particle.yy",},
